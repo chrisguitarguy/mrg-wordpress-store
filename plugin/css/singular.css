@@ -1,0 +1,115 @@
+body.single-mrg_product h1.title {
+	font-size:2.5em;
+}
+.product-left {
+	float:left;
+	width:49%;
+	margin-right:2%;
+	text-align:justify
+}
+
+.product-right {
+	float:right;
+	width:49%;
+}
+
+.product-right .product-image, .product-right .product-gallery {
+	text-align:center;
+}
+
+.product-gallery {
+	margin-top: 20px;
+}
+
+.box .product-right .product-image img {
+	border:none;
+}
+
+.box .product-left .gallery img {
+	border:none;
+}
+
+.product-widget-area {
+	padding: 0 0 0 35px;
+	text-align:justify;
+}
+
+/**
+ *  Features/Attributes Styles
+ ************************************/
+
+.product-left h2.features-header {
+	margin-bottom:10px;
+}
+table.mrg-product-traits {
+	width: 100%;
+	margin-bottom:20px;
+	border-bottom: 1px solid #ccc;
+}
+
+table.mrg-product-traits tr {
+	border-top: 1px solid #ccc;
+}
+
+table.mrg-product-traits th {
+	text-align:left;
+	width: 50%;
+}
+
+table.mrg-product-traits th, table.mrg-product-traits td {
+	padding: 5px 0;
+}
+
+/*
+ * Review styles
+ *****************************/
+label {
+	display:inline-block;
+	font-weight:bold;
+	font-family: Droid Serif,serif;
+	font-size:1.2em;
+	color: #222;
+	width: 100px;
+}
+
+textarea {
+	width: 100%;
+}
+
+h4.rating-header {
+	font-weight:bold;
+}
+
+.review-image {
+	float:left;
+	width: 55px;
+	height:55px;
+}
+
+.review-content {
+	clear: both;
+	margin-top: 5px;
+}
+
+.review {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+
+h4.review-title {
+	font-size: 1.4em;
+	margin-bottom: 5px;
+}
+
+span.required {
+	display:none;
+	visibility:hidden;
+}
+
+label[for="author"]:after, label[for="email"]:after, label[for="comment"]:after {
+	content: '*';
+}
+label[for="url"] {
+	width: 104px;
+}
