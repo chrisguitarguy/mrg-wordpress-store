@@ -1,0 +1,1 @@
+/home/www/my-rare-guitars/wp-content/themes/freshnews/freshnews/single-mrg_product.php
