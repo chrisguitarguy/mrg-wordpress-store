@@ -1,19 +1,18 @@
 <?php
-// include the base classes
-define( 'DAVISPRESS_LIBRARY_PATH', dirname( __FILE__ ) );
-require_once( DAVISPRESS_LIBRARY_PATH . '/form-fields.php' );
-require_once( DAVISPRESS_LIBRARY_PATH . '/admin-page-tools.php' );
-require_once( DAVISPRESS_LIBRARY_PATH . '/meta-box-tools.php' );
-
 if( ! class_exists( 'davispressLibrary' ) ):
 class davispressLibrary
 {	
 	function __construct()
 	{
 		add_action( 'plugins_loaded', array( &$this, 'set_constants' ), 1 );
-		
 		add_action( 'init', array( &$this, 'register_scripts' ) );
 		add_action( 'init', array( &$this, 'register_styles' ) );
+		
+		// Load our admin classes
+		define( 'DAVISPRESS_LIBRARY_PATH', dirname( __FILE__ ) . 'includes/' );
+		require_once( DAVISPRESS_LIBRARY_PATH . '/form-fields.php' );
+		require_once( DAVISPRESS_LIBRARY_PATH . '/admin-page-tools.php' );
+		require_once( DAVISPRESS_LIBRARY_PATH . '/meta-box-tools.php' );
 	}
 	
 	function set_constants()
