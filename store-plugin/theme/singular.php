@@ -1,7 +1,7 @@
 <?php
 $opts = get_option( 'mrgstore_options' );
 $links_to = isset( $opts['image_links'] ) && 'file' == $opts['image_links'] ? ' link="file"' : '';
-$mrg_pt_id = get_post_thumbnail_id();
+$mrg_pt_id = has_post_thumbnail() ? get_post_thumbnail_id() : 0;
 $mrg_builtins = cd_mrg_get_product_builtins();
 $mrg_opts = get_option( 'mrgstore_options' );
 $mrg_rating = cd_mrg_get_rating();
@@ -19,7 +19,7 @@ get_header();
 	            	<div class="product-left">
 						
 						<div class="entry">
-							<?php if( isset( $mrg_opts['display_stars'] ) && 'on' == $mrg_opts['display_stars'] && $mrg_rating['rating'] ): ?>
+							<?php if( isset( $mrg_opts['display_stars'] ) && 'on' == $mrg_opts['display_stars'] && $mrg_rating ): ?>
 								
 								<div class="aggregate-rating"  itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" >
 									
@@ -62,18 +62,26 @@ get_header();
 						</div>
 	                    
 	                    <?php if( $mrg_traits = cg_mrg_product_atts_front() ): ?>
+	                    
 							<?php if( isset( $mrg_opts['features_header'] ) && $mrg_opts['features_header'] ): ?>
+							
 								<h2 class="features-header"><?php echo esc_attr( $mrg_opts['features_header'] ); ?></h2>
+								
 							<?php endif; /* features header */ ?>
 							
 							<table class="mrg-product-traits">
+								
 								<?php foreach( $mrg_traits as $name => $value ): ?>
+								
 									<tr>
 										<th scope="row"><?php echo esc_attr( $name ); ?></th>
 										<td><?php echo esc_attr( $value ); ?></td>
-									</tr>							
+									</tr>
+																
 								<?php endforeach; ?>
+								
 							</table>
+							
 						<?php endif; /* traits */ ?>
 	                    
 	                    <div class="product-reviews">
@@ -81,7 +89,7 @@ get_header();
 								<h2 class="features-header"><?php echo esc_attr( $mrg_opts['reviews_header'] ); ?></h2>
 							<?php endif; /* reviews header */ ?>
 
-							<?php comments_template( '/reviews.php' ); ?>
+							<?php comments_template( 'hijacked' ); /* Filtered in front-display.php to grab a different file */ ?>
 
 						</div>
 	                     

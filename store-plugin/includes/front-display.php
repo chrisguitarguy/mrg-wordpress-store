@@ -58,3 +58,35 @@ function cd_mrg_singular_front_styles()
 	// Normal styles
 	wp_enqueue_style( 'mrgproduct-singular-css', MRGSTORE_URL . 'css/singular.css', array(), NULL, 'all' );
 }
+
+/**
+ * Change the included file on singular mrg_product pages
+ * mrg_product posttype archives, and the two taxonomies
+ * registered for the store
+ * 
+ * @uses is_singular()
+ */
+add_filter( 'template_include', 'cd_mrg_template_hijack' );
+function cd_mrg_template_hijack( $template )
+{
+	if( is_singular( 'mrg_product' ) )
+	{
+		$template = MRGSTORE_THEME . 'singular.php';
+	}
+	return $template;
+}
+
+/**
+ * Change our comments file for reviews
+ * 
+ * @uses is_singular()
+ */
+add_filter( 'comments_template', 'cd_mrg_comments_hijack' );
+function cd_mrg_comments_hijack( $file )
+{
+	if( is_singular( 'mrg_product' ) )
+	{
+		$file = MRGSTORE_THEME . 'reviews.php';
+	}
+	return $file;
+}

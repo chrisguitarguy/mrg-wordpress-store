@@ -12,6 +12,7 @@ License: GPL2
 define( 'MRGSTORE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MRGSTORE_URL', plugin_dir_url( __FILE__ ) );
 define( 'MRGSTORE_INC', MRGSTORE_PATH . 'includes/' );
+define( 'MRGSTORE_THEME', MRGSTORE_PATH . 'theme/' );
 
 // load some shared files
 require_once( MRGSTORE_INC . 'post-type.php' );
